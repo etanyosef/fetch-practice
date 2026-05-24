@@ -23,9 +23,9 @@
                 </ul>
             </nav>
             <main class="col container flex-column justify-content-center min-vh-100 p-3">
-                <nav>
-                    <div class="container-fluid flex-row">
-                        <h2 class="navbar-brand">Inter-branch Inquiry</h2>
+                <nav class="">
+                    <div class="d-flex p3 align-items-center justify-content-between gap-3 w-100">
+                        <h1 class="navbar-brand">Inter-branch Inquiry</h1>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Add Client
                         </button>
@@ -41,9 +41,36 @@
                         </form>
                     </div>
                 </nav>
-                <div class="container w-50">
-                    <h2>Inter-branch Inquiry</h2>
-                    
+                <div class="container-fluid w-50">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </main>
 
