@@ -24,8 +24,11 @@
             </nav>
             <main class="col container flex-column justify-content-center min-vh-100 p-3">
                 <nav>
-                    <div class="container-fluid">
+                    <div class="container-fluid flex-row">
                         <h2 class="navbar-brand">Inter-branch Inquiry</h2>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Add Client
+                        </button>
                     </div>
                     <div class="collapse navbar-collapse" id="mynavbar">
                         <ul class="navbar-nav me-auto">
@@ -40,44 +43,12 @@
                 </nav>
                 <div class="container w-50">
                     <h2>Inter-branch Inquiry</h2>
-                    <div class="form-container">
-                        <form class="ibi-add-form" action="" method="POST">
-                            <div class="mb-3 mt-3">
-                                <label for="firstName" class="form-label">First name:</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="middleName" class="form-label">Middle name:</label>
-                                <input type="text" class="form-control" id="middleName" placeholder="Middle name" name="middleName" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="lastName" class="form-label">Last name:</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="branch" class="form-label">Branch:</label>
-                                <select name="branch" id="branch" class="form-select" required>
-                                    <option value="">Select</option>
-                                    <option value="Main 1">Main 1</option>
-                                    <option value="Main 2">Main 2</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="status" class="form-label">Status:</label>
-                                <select name="status" id="status" class="form-select" required>
-                                    <option value="">Select</option>
-                                    <option value="Active">Active</option>
-                                    <option value="Disapproved">Disapproved</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary submit">Submit</button>
-                        </form>
-                    </div>
+                    
                 </div>
             </main>
 
         </div>
     </div>
-    
+    <?php include_once 'includes/ibi-add-modal.php' ?>
 </body>
 </html>
