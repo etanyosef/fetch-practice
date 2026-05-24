@@ -8,7 +8,7 @@ async function ibiAddClient(e) {
     const data = Object.fromEntries(clientData);
 
     try {
-        const response = await fetch('./action/inter-branch-inquiry.php', {
+        const response = await fetch('./action/ibi-add-client.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
