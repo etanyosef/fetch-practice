@@ -1,0 +1,1 @@
+JavaScript fetch with PHP backend practice.
