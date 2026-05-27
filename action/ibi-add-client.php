@@ -10,11 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $data = file_get_contents("php://input");
     $client = json_decode($data, true);
 
-    $firstName = $client['firstName'];
-    $middleName = $client['middleName'];
-    $lastName = $client['lastName'];
-    $branch = $client['branch'];
-    $status = $client['status'];
+    $firstName = htmlspecialchars($client['firstName']);
+    $middleName = htmlspecialchars($client['middleName']);
+    $lastName = htmlspecialchars($client['lastName']);
+    $branch = htmlspecialchars($client['branch']);
+    $status = htmlspecialchars($client['status']);
 
     $sql = "INSERT INTO `interbranch_inquiry` (`firstname`, `middlename`, `lastname`, `branch`, `status`) 
                                         VALUES ('$firstName', '$middleName', '$lastName', '$branch', '$status')";
