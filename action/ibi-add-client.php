@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST)) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mysqli = new mysqli('localhost', 'root', '', 'ascc');
 
     if ($mysqli->connect_errno != 0) {
