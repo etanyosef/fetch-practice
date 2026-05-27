@@ -1,4 +1,5 @@
 const ibiForm = document.querySelector('.ibi-add-form');
+const loader = document.querySelector('.loader-container');
 ibiForm.addEventListener('submit', ibiAddClient);
 
 async function ibiAddClient(e) {
@@ -8,43 +9,50 @@ async function ibiAddClient(e) {
     const data = Object.fromEntries(clientData);
 
     try {
-        const response = await fetch('./action/ibi-add-client.php', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
-        const res = await response.json();
-        console.log(res);
+        loader.style.display = 'block';
 
-        ibiForm.reset();
+        await setTimeout(async () => {
+            const response = await fetch('./action/ibi-add-client.php', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            const res = await response.json();
+            displayToast(res);
+            
+            loader.style.display = 'none';
 
-        const formContainer = document.querySelector('.form-container');
-        const toast = document.createElement('div');
-        const toastMessage = document.createElement('span');
-        const strong = document.createElement('strong');
-        const toastButton = document.createElement('button');
-
-        strong.textContent = `${res.firstName} ${res.lastName}`;
-        toast.textContent = ' has been added!';
-        
-        toast.classList.add('alert', 'alert-success', 'alert-dismissible', 'fade', 'show');
-        toast.setAttribute('role', 'alert');
-
-        toastButton.classList.add('btn-close');
-        toastButton.setAttribute('data-bs-dismiss', 'alert');
-        toastButton.setAttribute('aria-label', 'Close');
-        toastButton.setAttribute('type', 'button');
-
-        // toast.append(toastMessage);
-        toast.prepend(strong);
-        toast.append(toastButton);
-
-        formContainer.prepend(toast);
+            ibiForm.reset();    
+        }, 3000);
         
     } catch(error) {
         console.log(error);
     }
+}
+
+function displayToast(res) {
+    const formContainer = document.querySelector('.form-container');
+    const toast = document.createElement('div');
+    const toastMessage = document.createElement('span');
+    const strong = document.createElement('strong');
+    const toastButton = document.createElement('button');
+
+    strong.textContent = `${res.firstName} ${res.lastName}`;
+    toast.textContent = ' has been added!';
+    
+    toast.classList.add('alert', 'alert-success', 'alert-dismissible', 'fade', 'show');
+    toast.setAttribute('role', 'alert');
+
+    toastButton.classList.add('btn-close');
+    toastButton.setAttribute('data-bs-dismiss', 'alert');
+    toastButton.setAttribute('aria-label', 'Close');
+    toastButton.setAttribute('type', 'button');
+
+    // toast.append(toastMessage);
+    toast.prepend(strong);
+    toast.append(toastButton);
+    formContainer.prepend(toast);
 }
