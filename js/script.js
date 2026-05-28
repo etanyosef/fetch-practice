@@ -12,7 +12,7 @@ async function ibiAddClient(e) {
         loader.style.display = 'block';
 
         await setTimeout(async () => {
-            const response = await fetch('./action/ibi-add-client.php', {
+            const response = await fetch('./action/add-client.inc.php', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -26,7 +26,7 @@ async function ibiAddClient(e) {
             loader.style.display = 'none';
 
             ibiForm.reset();    
-        }, 3000);
+        }, 500);
         
     } catch(error) {
         console.log(error);
