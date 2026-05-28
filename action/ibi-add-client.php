@@ -18,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "INSERT INTO `interbranch_inquiry` (`firstname`, `middlename`, `lastname`, `branch`, `status`) 
                                         VALUES ('$firstName', '$middleName', '$lastName', '$branch', '$status')";
-
     $result = $mysqli->query($sql);
 
     if (!$result) {
